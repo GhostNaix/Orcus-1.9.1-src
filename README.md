@@ -1,7 +1,7 @@
 # Orcus 1.9.1 Source Code
 
 # Changes i made to this fork
-- Removed license key checking ( no need to manually creata a license file )
+- Removed license key checking ( no need to manually create a license file )
 - Fixed release build + Language and dll files will go in libraries folder (cleaner release) 
 
 # Credits snyke
