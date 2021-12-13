@@ -102,13 +102,6 @@ namespace Orcus.Administration
                     Environment.Exit(0);
             }
 
-            var license = OrcusActivator.Parse(File.ReadAllText(licenseFile.FullName));
-            if (!license.IsValid)
-            {
-                MessageBox.Show("Invalid license.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0);
-            }
-
             //From http://patorjk.com/software/taag Font: Avatar
             const string welcomeString = @" ____  ____  ____  _     ____ 
 /  _ \/  __\/   _\/ \ /\/ ___\

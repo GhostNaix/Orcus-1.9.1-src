@@ -6,11 +6,10 @@ namespace Orcus.Administration.Views.Licensing.Steps
     {
         private ApplicationTheme _applicationTheme;
 
-        public Step3(Settings settings, LicenseConfig config)
+        public Step3(Settings settings)
         {
             Settings = settings;
 
-            LicenseConfig = config;
         }
 
         public ApplicationTheme ApplicationTheme

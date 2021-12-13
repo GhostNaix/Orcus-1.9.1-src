@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using Orcus.Administration.Core;
 using Orcus.Administration.Core.Utilities;
@@ -31,8 +32,7 @@ namespace Orcus.Administration.ViewModels
             {
                 new Step1(Settings.Current, _licenseConfig),
                 new Step2(),
-                new Step3(Settings.Current, _licenseConfig),
-                new Step4(_licenseConfig)
+                new Step3(Settings.Current)
             };
 
             CurrentView = _views[0];
@@ -99,30 +99,19 @@ namespace Orcus.Administration.ViewModels
                     Animation = "MoveForwardState";
                     if (CurrentViewMode == CurrentViewMode.LastStep)
                     {
-                        CurrentView = new Step5(_licenseConfig);
-                        CanGoBack = false;
-                        CanGoForward = false;
+                       
 
-                        var result = await WebserverConnection.Current.TryRegister(_licenseConfig.LicenseKey);
-                        if (result == LicenseRequestResult.Success)
-                        {
+                        
                             CurrentViewMode = CurrentViewMode.Finished;
                             CanGoForward = true;
                             CurrentView = new StepFinished();
-                        }
-                        else
-                        {
-                            CurrentViewMode = CurrentViewMode.SmallTalk;
-                            CanGoForward = true;
-                            CanGoBack = false;
-                            CurrentView = new StepError(result);
-                        }
 
                         return;
                     }
                     if (CurrentViewMode == CurrentViewMode.Finished)
                     {
                         Settings.Current.Save();
+                        File.Create("license.orcus");
                         if (Settings.Current.Theme != ApplicationTheme.Light)
                         {
                             Application.Current.Restart();

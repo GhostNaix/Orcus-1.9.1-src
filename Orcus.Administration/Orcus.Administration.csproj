@@ -293,7 +293,6 @@
     <Compile Include="Exceptionless\ExceptionHandler.cs" />
     <Compile Include="Exceptionless\HardwareIdPlugin.cs" />
     <Compile Include="Licensing\HardwareIdGenerator.cs" />
-    <Compile Include="OrcusActivator.cs" />
     <Compile Include="Licensing\WebserverConnection.cs" />
     <Compile Include="Native\MenuFlags.cs" />
     <Compile Include="Native\NativeMethods.cs" />
@@ -2062,7 +2061,6 @@ if $(ConfigurationName) == Publish call "$(ProjectDir)cleanup.bat"
 if $(ConfigurationName) == Release call "$(ProjectDir)moveFiles.bat"
   </PostBuildEvent>
   </PropertyGroup>
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

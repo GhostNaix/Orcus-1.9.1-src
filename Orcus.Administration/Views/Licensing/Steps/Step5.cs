@@ -2,9 +2,8 @@
 {
     public class Step5 : View
     {
-        public Step5(LicenseConfig licenseConfig)
+        public Step5()
         {
-            LicenseConfig = licenseConfig;
         }
     }
 }

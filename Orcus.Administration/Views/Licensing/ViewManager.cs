@@ -24,8 +24,6 @@ namespace Orcus.Administration.Views.Licensing
                     {typeof (Step1), typeof (Page1)},
                     {typeof (Step2), typeof (Page2)},
                     {typeof (Step3), typeof (Page3)},
-                    {typeof (Step4), typeof (Page4)},
-                    {typeof (Step5), typeof (Page5)},
                     {typeof (StepFinished), typeof (PageFinished)},
                     {typeof (StepError), typeof (PageError)}
                 });
