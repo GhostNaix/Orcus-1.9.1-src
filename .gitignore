@@ -202,3 +202,6 @@ Orcus.Administration.App/packages/*
 
 #Signing batch files
 signApp.bat
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
