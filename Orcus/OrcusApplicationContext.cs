@@ -94,27 +94,6 @@ namespace Orcus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            var icon = new NotifyIcon
-            {
-                Icon = Properties.Resources.ConnectEnvironment,
-                Text = "Orcus Client",
-                Visible = true
-            };
-            Form window = null;
-            icon.DoubleClick += (sender, args) =>
-            {
-                if (window == null)
-                {
-                    window = new MainForm(_client);
-                    window.Show();
-                    window.Closing += (o, eventArgs) => window = null;
-                }
-                else
-                {
-                    window.Activate();
-                }
-            };
         }
 
         private void ClientOnConnected(object sender, EventArgs eventArgs)

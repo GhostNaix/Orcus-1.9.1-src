@@ -161,9 +161,6 @@ namespace Orcus
                                     ".orcusInstallation"));
                         if (!orcusInstalledFile.Exists || !File.ReadAllLines(orcusInstalledFile.FullName).Contains(Settings.Mutex))
                         {
-                            if (new InstallationPromptForm().ShowDialog() != DialogResult.OK)
-                                return;
-
                             using (var fileStream = new FileStream(orcusInstalledFile.FullName, FileMode.Append, FileAccess.Write))
                             using (var streamWriter = new StreamWriter(fileStream))
                                 streamWriter.WriteLine(Settings.Mutex);
