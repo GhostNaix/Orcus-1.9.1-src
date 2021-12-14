@@ -27,8 +27,7 @@ namespace Orcus.Administration.ViewModels
         private RelayCommand _buildServerCommand;
         private bool? _dialogResult;
         private RelayCommand _extractServerCommand;
-        private string _ip2LocationEmailAddress;
-        private SecureString _ip2LocationPassword;
+        private string _Ip2LocationToken;
         private SecureString _password = new SecureString();
         private RelayCommand _registerIp2LocationCommand;
         private RelayCommand _removeIpAddressCommand;
@@ -59,16 +58,10 @@ namespace Orcus.Administration.ViewModels
             set { SetProperty(value, ref _password); }
         }
 
-        public string Ip2LocationEmailAddress
+        public string Ip2LocationToken
         {
-            get { return _ip2LocationEmailAddress; }
-            set { SetProperty(value, ref _ip2LocationEmailAddress); }
-        }
-
-        public SecureString Ip2LocationPassword
-        {
-            get { return _ip2LocationPassword; }
-            set { SetProperty(value, ref _ip2LocationPassword); }
+            get { return _Ip2LocationToken; }
+            set { SetProperty(value, ref _Ip2LocationToken); }
         }
 
         public bool? DialogResult
@@ -257,11 +250,10 @@ namespace Orcus.Administration.ViewModels
                         };
 
 
-                        if (!string.IsNullOrEmpty(Ip2LocationEmailAddress) && Ip2LocationPassword?.Length > 0)
+                        if (!string.IsNullOrEmpty(Ip2LocationToken))
                         {
                             config.IsGeoIpLocationEnabled = true;
-                            config.Ip2LocationEmailAddress = Ip2LocationEmailAddress;
-                            config.Ip2LocationPassword = StringExtensions.SecureStringToString(Ip2LocationPassword);
+                            config.Ip2LocationToken = Ip2LocationToken;
                         }
 
                         File.WriteAllText(Path.Combine(directory, "settings.json"),

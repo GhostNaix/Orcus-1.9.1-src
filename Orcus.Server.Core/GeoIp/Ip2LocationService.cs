@@ -58,7 +58,7 @@ namespace Orcus.Server.Core.GeoIp
 			IsStarted = false;
 		}
 
-		public void Start(string emailAddress, string password)
+		public void Start(string downloadToken)
 		{
 			if (_sqliteConnection != null && !_updateRequired)
 				return;
@@ -69,7 +69,7 @@ namespace Orcus.Server.Core.GeoIp
 			var databaseFile = new FileInfo(Path.Combine(directory.FullName, "geoipDatabase.sqlite"));
 			if (!CheckDatabase(directory, databaseFile, out _sqliteConnection))
 			{
-				if (emailAddress == null || password == null)
+				if (downloadToken == null)
 				{
 					_updateRequired = true;
 					IsStarted = false;
@@ -78,11 +78,11 @@ namespace Orcus.Server.Core.GeoIp
 
 				try
 				{
-					DownloadDatabase(directory, emailAddress, password);
+					DownloadDatabase(directory, downloadToken);
 				}
 				catch (Exception ex)
 				{
-					Logger.Error(ex, "An error occurred when trying to download the geo location database");
+					Logger.Error(ex, $"An error occurred when trying to download the geo location database {ex}");
 					return;
 				}
 				_sqliteConnection = new SqliteConnection($"Data Source={databaseFile.FullName};Version=3;");
@@ -215,7 +215,7 @@ namespace Orcus.Server.Core.GeoIp
 			}
 		}
 
-		public void DownloadDatabase(DirectoryInfo directory, string emailAddress, string password)
+		public void DownloadDatabase(DirectoryInfo directory, string downloadToken)
 		{
 			Logger.Info("Geo-IP database not found, preparing download...");
 			if (directory.Exists)
@@ -242,13 +242,17 @@ namespace Orcus.Server.Core.GeoIp
 				{
 					using (var webClient = new WebClient {Proxy = null})
 					{
-						var url =
-							$"http://www.ip2location.com/download?login={Uri.EscapeDataString(emailAddress)}&password={Uri.EscapeDataString(password)}&productcode={DatabaseProduct}";
+						var url = $"https://www.ip2location.com/download/?token={downloadToken}&file={DatabaseProduct}";
 						webClient.DownloadProgressChanged +=
 							(sender, args) =>
 								progressInfo.ReportProgress(args.ProgressPercentage/100d);
 						using (var autoResetEvent = new AutoResetEvent(false))
 						{
+							ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+								| SecurityProtocolType.Tls11
+								| SecurityProtocolType.Tls12
+								| SecurityProtocolType.Ssl3;
+
 							webClient.DownloadFileCompleted += (sender, args) => autoResetEvent.Set();
 							webClient.DownloadFileAsync(new Uri(url), zipFile.FullName);
 							autoResetEvent.WaitOne();
@@ -271,6 +275,12 @@ namespace Orcus.Server.Core.GeoIp
 
 				using (var fileStream = new FileStream(zipFile.FullName, FileMode.Open, FileAccess.Read))
 				{
+					// Workaround for SharpZipLib issue #195
+					// ZipFile ctor throws if code page is 1 (on multi-locale system)
+					// see: https://github.com/icsharpcode/SharpZipLib/issues/195
+					if (ZipConstants.DefaultCodePage == 1)
+						ZipConstants.DefaultCodePage = 850;
+					
 					var zf = new ZipFile(fileStream);
 					foreach (ZipEntry zipEntry in zf)
 					{

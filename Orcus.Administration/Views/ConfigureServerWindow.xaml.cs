@@ -18,10 +18,5 @@ namespace Orcus.Administration.Views
         {
             ((ConfigureServerViewModel) DataContext).Password = ((PasswordBox) sender).SecurePassword;
         }
-
-        private void Ip2LocationPasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
-        {
-            ((ConfigureServerViewModel) DataContext).Ip2LocationPassword = ((PasswordBox) sender).SecurePassword;
-        }
     }
 }

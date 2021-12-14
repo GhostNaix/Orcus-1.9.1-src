@@ -29,7 +29,6 @@ namespace Orcus.Shared.Server
         public string SslCertificatePassword { get; set; }
 
         public bool IsGeoIpLocationEnabled { get; set; }
-        public string Ip2LocationEmailAddress { get; set; }
-        public string Ip2LocationPassword { get; set; }
+        public string Ip2LocationToken { get; set; }
     }
 }

@@ -223,8 +223,7 @@ namespace Orcus.Server.CommandLine
 
                 if (settings != null && settings.IsGeoIpLocationEnabled)
                 {
-                    server.Ip2LocationEmailAddress = settings.Ip2LocationEmailAddress;
-                    server.Ip2LocationPassword = settings.Ip2LocationPassword;
+                    server.Ip2LocationToken = settings.Ip2LocationToken;
                 }
 
                 server.Start();
@@ -376,8 +375,7 @@ namespace Orcus.Server.CommandLine
                             {
                                 settings.IsGeoIpLocationEnabled = true;
                                 settings.Save();
-                                server.Ip2LocationEmailAddress = settings.Ip2LocationEmailAddress;
-                                server.Ip2LocationPassword = settings.Ip2LocationPassword;
+                                server.Ip2LocationToken = settings.Ip2LocationToken;
                                 server.ReloadGeoIpLocationService();
                             }
                             break;
@@ -396,8 +394,7 @@ namespace Orcus.Server.CommandLine
                             settings.IsGeoIpLocationEnabled = true;
                             settings.Save();
 
-                            server.Ip2LocationEmailAddress = settings.Ip2LocationEmailAddress;
-                            server.Ip2LocationPassword = settings.Ip2LocationPassword;
+                            server.Ip2LocationToken = settings.Ip2LocationToken;
                             server.ReloadGeoIpLocationService();
                             break;
                         case "disable geoip":
@@ -457,8 +454,7 @@ namespace Orcus.Server.CommandLine
                 Console.WriteLine("Canceled, you can setup it later using \"setup geoip\"");
                 return false;
             }
-            settings.Ip2LocationEmailAddress = emailAddress;
-            settings.Ip2LocationPassword = password;
+            settings.Ip2LocationToken = emailAddress;
             return true;
         }
 

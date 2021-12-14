@@ -55,8 +55,7 @@ namespace Orcus.Server.Forms
 
             GeoIpCheckBox.Checked = _settings.IsGeoIpLocationEnabled;
             GeoIpCheckBox_CheckedChanged(null, null);
-            Ip2LocationEmailTextBox.Text = _settings.Ip2LocationEmailAddress;
-            Ip2LocationPasswordTextBox.Text = _settings.Ip2LocationPassword;
+            Ip2LocationTokenTextBox.Text = _settings.Ip2LocationToken;
         }
 
         private void AutostartCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -96,34 +95,22 @@ namespace Orcus.Server.Forms
             _settings.IsGeoIpLocationEnabled = GeoIpCheckBox.Checked;
             if (GeoIpCheckBox.Checked)
             {
-                if (string.IsNullOrWhiteSpace(Ip2LocationEmailTextBox.Text))
+                if (string.IsNullOrWhiteSpace(Ip2LocationTokenTextBox.Text))
                 {
-                    MessageBox.Show("Please input an email address or disable the geo location.", "Error",
+                    MessageBox.Show("Please the token or disable the geo location.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(Ip2LocationPasswordTextBox.Text))
-                {
-                    MessageBox.Show("Please input a password or disable the geo location.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    e.Cancel = true;
-                    return;
-                }
-
-                _server.Ip2LocationEmailAddress = Ip2LocationEmailTextBox.Text;
-                _server.Ip2LocationPassword = Ip2LocationPasswordTextBox.Text;
-                _settings.Ip2LocationEmailAddress = Ip2LocationEmailTextBox.Text;
-                _settings.Ip2LocationPassword = Ip2LocationPasswordTextBox.Text;
+                _server.Ip2LocationToken = Ip2LocationTokenTextBox.Text;
+                _settings.Ip2LocationToken = Ip2LocationTokenTextBox.Text;
                // _server.ReloadGeoIpLocationService();
             }
             else
             {
-                _server.Ip2LocationEmailAddress = null;
-                _server.Ip2LocationPassword = null;
-                _settings.Ip2LocationEmailAddress = null;
-                _settings.Ip2LocationPassword = null;
+                _server.Ip2LocationToken = null;
+                _settings.Ip2LocationToken = null;
             }
 
             if (_settings.SslCertificatePath != SslPathTextBox.Text ||
@@ -190,8 +177,7 @@ namespace Orcus.Server.Forms
 
         private void GeoIpCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Ip2LocationEmailTextBox.Enabled = GeoIpCheckBox.Checked;
-            Ip2LocationPasswordTextBox.Enabled = GeoIpCheckBox.Checked;
+            Ip2LocationTokenTextBox.Enabled = GeoIpCheckBox.Checked;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

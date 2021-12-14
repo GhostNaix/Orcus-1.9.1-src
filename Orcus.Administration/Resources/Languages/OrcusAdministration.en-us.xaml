@@ -630,7 +630,7 @@
     <system:String x:Key="SureRemoveDataEntry">Are you sure that you want to remove the selected entry?</system:String>
     <system:String x:Key="Files">Files</system:String>
     <system:String x:Key="All">All</system:String>
-    <system:String x:Key="EmailAddress">E-Mail address</system:String>
+    <system:String x:Key="DownloadToken">Download Token</system:String>
     <system:String x:Key="GeoIpLocation">Geo IP Location</system:String>
     <system:String x:Key="RegisterHere">Register here</system:String>
     <system:String x:Key="Executable">Executable</system:String>

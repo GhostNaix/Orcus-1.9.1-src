@@ -78,8 +78,7 @@ namespace Orcus.Server
             _server = new TcpServer(database, settings.IpAddresses, certificate) {Password = settings.Password};
             if (settings.IsGeoIpLocationEnabled)
             {
-                _server.Ip2LocationEmailAddress = settings.Ip2LocationEmailAddress;
-                _server.Ip2LocationPassword = settings.Ip2LocationPassword;
+                _server.Ip2LocationToken = settings.Ip2LocationToken;
             }
 
             if (settings.UpdatePlugin != null && settings.IsDnsUpdaterEnabled)

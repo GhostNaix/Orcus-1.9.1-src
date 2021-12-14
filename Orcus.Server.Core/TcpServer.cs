@@ -93,8 +93,7 @@ namespace Orcus.Server.Core
         public PushManager PushManager { get; }
         public bool EnableNamedPipes { get; set; }
 
-        public string Ip2LocationEmailAddress { get; set; }
-        public string Ip2LocationPassword { get; set; }
+        public string Ip2LocationToken { get; set; }
 
         public DateTime OnlineSince { get; }
         public ConcurrentDictionary<int, Client> Clients { get; }
@@ -196,7 +195,7 @@ namespace Orcus.Server.Core
                 Logger.Fatal("Start failed: No SSL certificate loaded");
                 return;
             }
-            await Task.Run(() => _ip2LocationService.Start(Ip2LocationEmailAddress, Ip2LocationPassword));
+            await Task.Run(() => _ip2LocationService.Start(Ip2LocationToken));
 
             Logger.Info("Starting all listeners...");
             foreach (var listener in Listeners)
@@ -257,7 +256,7 @@ namespace Orcus.Server.Core
 
         public void ReloadGeoIpLocationService()
         {
-            _ip2LocationService.Start(Ip2LocationEmailAddress, Ip2LocationPassword);
+            _ip2LocationService.Start(Ip2LocationToken);
         }
 
         private void ListenerOnConnect(object sender, TcpClientConnectedEventArgs args)
