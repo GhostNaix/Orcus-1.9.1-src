@@ -107,7 +107,7 @@ namespace Orcus.Server
                 Invoke((MethodInvoker) delegate
                 {
                     logProgressBar.Visible = true;
-                    LogRichTextBox.Size = new Size(LogRichTextBox.Width, 62);
+                    LogRichTextBox.Size = new Size(LogRichTextBox.Width, 299);
 
                     LogRichTextBox.AppendText(message + "\r\n");
                     LogRichTextBox.SelectionStart = LogRichTextBox.Text.Length;
@@ -127,7 +127,7 @@ namespace Orcus.Server
                 Invoke((MethodInvoker) delegate
                 {
                     logProgressBar.Visible = false;
-                    LogRichTextBox.Size = new Size(LogRichTextBox.Width, 75);
+                    LogRichTextBox.Size = new Size(LogRichTextBox.Width, 311);
                 });
         }
 

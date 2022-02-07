@@ -36,14 +36,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.IsRunningLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.ButtonStart = new System.Windows.Forms.Button();
             this.ButtonStop = new System.Windows.Forms.Button();
             this.AddListenerButton = new System.Windows.Forms.Button();
             this.RemoveListenerButton = new System.Windows.Forms.Button();
             this.ListenersListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.ButtonDisconnectAll = new System.Windows.Forms.Button();
             this.ButtonDisconnectSchnorchels = new System.Windows.Forms.Button();
             this.ButtonDisconnectAdministrations = new System.Windows.Forms.Button();
@@ -55,8 +53,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.logProgressBar = new System.Windows.Forms.ProgressBar();
             this.LogRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -67,9 +73,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.IsRunningLabel);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(508, 12);
+            this.groupBox1.Location = new System.Drawing.Point(15, 411);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(870, 108);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -77,73 +85,69 @@
             // SchnorchelsLabel
             // 
             this.SchnorchelsLabel.AutoSize = true;
-            this.SchnorchelsLabel.Location = new System.Drawing.Point(89, 55);
+            this.SchnorchelsLabel.Location = new System.Drawing.Point(111, 69);
+            this.SchnorchelsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SchnorchelsLabel.Name = "SchnorchelsLabel";
-            this.SchnorchelsLabel.Size = new System.Drawing.Size(13, 13);
+            this.SchnorchelsLabel.Size = new System.Drawing.Size(14, 15);
             this.SchnorchelsLabel.TabIndex = 5;
             this.SchnorchelsLabel.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 55);
+            this.label5.Location = new System.Drawing.Point(8, 69);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(47, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Clients:";
             // 
             // AdministrationsLabel
             // 
             this.AdministrationsLabel.AutoSize = true;
-            this.AdministrationsLabel.Location = new System.Drawing.Point(89, 40);
+            this.AdministrationsLabel.Location = new System.Drawing.Point(111, 50);
+            this.AdministrationsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdministrationsLabel.Name = "AdministrationsLabel";
-            this.AdministrationsLabel.Size = new System.Drawing.Size(13, 13);
+            this.AdministrationsLabel.Size = new System.Drawing.Size(14, 15);
             this.AdministrationsLabel.TabIndex = 3;
             this.AdministrationsLabel.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 40);
+            this.label3.Location = new System.Drawing.Point(8, 50);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(94, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Administrations:";
             // 
             // IsRunningLabel
             // 
             this.IsRunningLabel.AutoSize = true;
-            this.IsRunningLabel.Location = new System.Drawing.Point(89, 25);
+            this.IsRunningLabel.Location = new System.Drawing.Point(111, 31);
+            this.IsRunningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IsRunningLabel.Name = "IsRunningLabel";
-            this.IsRunningLabel.Size = new System.Drawing.Size(29, 13);
+            this.IsRunningLabel.Size = new System.Drawing.Size(33, 15);
             this.IsRunningLabel.TabIndex = 1;
             this.IsRunningLabel.Text = "false";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(64, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Is running:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(8, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Server";
-            // 
             // ButtonStart
             // 
-            this.ButtonStart.Location = new System.Drawing.Point(12, 120);
+            this.ButtonStart.Location = new System.Drawing.Point(4, 5);
+            this.ButtonStart.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonStart.Name = "ButtonStart";
-            this.ButtonStart.Size = new System.Drawing.Size(75, 23);
+            this.ButtonStart.Size = new System.Drawing.Size(94, 29);
             this.ButtonStart.TabIndex = 2;
             this.ButtonStart.Text = "Start";
             this.ButtonStart.UseVisualStyleBackColor = true;
@@ -151,9 +155,10 @@
             // 
             // ButtonStop
             // 
-            this.ButtonStop.Location = new System.Drawing.Point(93, 120);
+            this.ButtonStop.Location = new System.Drawing.Point(106, 5);
+            this.ButtonStop.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonStop.Name = "ButtonStop";
-            this.ButtonStop.Size = new System.Drawing.Size(75, 23);
+            this.ButtonStop.Size = new System.Drawing.Size(94, 29);
             this.ButtonStop.TabIndex = 3;
             this.ButtonStop.Text = "Stop";
             this.ButtonStop.UseVisualStyleBackColor = true;
@@ -161,9 +166,10 @@
             // 
             // AddListenerButton
             // 
-            this.AddListenerButton.Location = new System.Drawing.Point(508, 271);
+            this.AddListenerButton.Location = new System.Drawing.Point(635, 735);
+            this.AddListenerButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddListenerButton.Name = "AddListenerButton";
-            this.AddListenerButton.Size = new System.Drawing.Size(75, 23);
+            this.AddListenerButton.Size = new System.Drawing.Size(94, 29);
             this.AddListenerButton.TabIndex = 5;
             this.AddListenerButton.Text = "Add";
             this.AddListenerButton.UseVisualStyleBackColor = true;
@@ -171,9 +177,10 @@
             // 
             // RemoveListenerButton
             // 
-            this.RemoveListenerButton.Location = new System.Drawing.Point(633, 271);
+            this.RemoveListenerButton.Location = new System.Drawing.Point(791, 735);
+            this.RemoveListenerButton.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveListenerButton.Name = "RemoveListenerButton";
-            this.RemoveListenerButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveListenerButton.Size = new System.Drawing.Size(94, 29);
             this.RemoveListenerButton.TabIndex = 6;
             this.RemoveListenerButton.Text = "Remove";
             this.RemoveListenerButton.UseVisualStyleBackColor = true;
@@ -182,9 +189,10 @@
             // ListenersListBox
             // 
             this.ListenersListBox.FormattingEnabled = true;
-            this.ListenersListBox.Location = new System.Drawing.Point(508, 139);
+            this.ListenersListBox.Location = new System.Drawing.Point(635, 554);
+            this.ListenersListBox.Margin = new System.Windows.Forms.Padding(4);
             this.ListenersListBox.Name = "ListenersListBox";
-            this.ListenersListBox.Size = new System.Drawing.Size(200, 121);
+            this.ListenersListBox.Size = new System.Drawing.Size(249, 173);
             this.ListenersListBox.TabIndex = 7;
             this.ListenersListBox.SelectedIndexChanged += new System.EventHandler(this.ListenersListBox_SelectedIndexChanged);
             // 
@@ -193,28 +201,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(504, 115);
+            this.label4.Location = new System.Drawing.Point(629, 522);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 21);
+            this.label4.Size = new System.Drawing.Size(87, 28);
             this.label4.TabIndex = 8;
             this.label4.Text = "Listeners";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(8, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 21);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Connections";
-            // 
             // ButtonDisconnectAll
             // 
-            this.ButtonDisconnectAll.Location = new System.Drawing.Point(12, 188);
+            this.ButtonDisconnectAll.Location = new System.Drawing.Point(4, 5);
+            this.ButtonDisconnectAll.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonDisconnectAll.Name = "ButtonDisconnectAll";
-            this.ButtonDisconnectAll.Size = new System.Drawing.Size(146, 23);
+            this.ButtonDisconnectAll.Size = new System.Drawing.Size(182, 29);
             this.ButtonDisconnectAll.TabIndex = 10;
             this.ButtonDisconnectAll.Text = "Disconnect all";
             this.ButtonDisconnectAll.UseVisualStyleBackColor = true;
@@ -222,9 +221,10 @@
             // 
             // ButtonDisconnectSchnorchels
             // 
-            this.ButtonDisconnectSchnorchels.Location = new System.Drawing.Point(164, 188);
+            this.ButtonDisconnectSchnorchels.Location = new System.Drawing.Point(194, 5);
+            this.ButtonDisconnectSchnorchels.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonDisconnectSchnorchels.Name = "ButtonDisconnectSchnorchels";
-            this.ButtonDisconnectSchnorchels.Size = new System.Drawing.Size(146, 23);
+            this.ButtonDisconnectSchnorchels.Size = new System.Drawing.Size(182, 29);
             this.ButtonDisconnectSchnorchels.TabIndex = 11;
             this.ButtonDisconnectSchnorchels.Text = "Disconnect clients";
             this.ButtonDisconnectSchnorchels.UseVisualStyleBackColor = true;
@@ -232,9 +232,10 @@
             // 
             // ButtonDisconnectAdministrations
             // 
-            this.ButtonDisconnectAdministrations.Location = new System.Drawing.Point(316, 188);
+            this.ButtonDisconnectAdministrations.Location = new System.Drawing.Point(384, 5);
+            this.ButtonDisconnectAdministrations.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonDisconnectAdministrations.Name = "ButtonDisconnectAdministrations";
-            this.ButtonDisconnectAdministrations.Size = new System.Drawing.Size(146, 23);
+            this.ButtonDisconnectAdministrations.Size = new System.Drawing.Size(182, 29);
             this.ButtonDisconnectAdministrations.TabIndex = 12;
             this.ButtonDisconnectAdministrations.Text = "Disconnect administrations";
             this.ButtonDisconnectAdministrations.UseVisualStyleBackColor = true;
@@ -245,25 +246,28 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(8, 230);
+            this.label7.Location = new System.Drawing.Point(15, 706);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 21);
+            this.label7.Size = new System.Drawing.Size(93, 28);
             this.label7.TabIndex = 13;
             this.label7.Text = "Password";
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(12, 254);
+            this.PasswordTextBox.Location = new System.Drawing.Point(21, 738);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(254, 20);
+            this.PasswordTextBox.Size = new System.Drawing.Size(316, 20);
             this.PasswordTextBox.TabIndex = 14;
             this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // ChangePasswordButton
             // 
-            this.ChangePasswordButton.Location = new System.Drawing.Point(272, 252);
+            this.ChangePasswordButton.Location = new System.Drawing.Point(346, 735);
+            this.ChangePasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.ChangePasswordButton.Name = "ChangePasswordButton";
-            this.ChangePasswordButton.Size = new System.Drawing.Size(75, 23);
+            this.ChangePasswordButton.Size = new System.Drawing.Size(94, 29);
             this.ChangePasswordButton.TabIndex = 15;
             this.ChangePasswordButton.Text = "Change";
             this.ChangePasswordButton.UseVisualStyleBackColor = true;
@@ -272,9 +276,10 @@
             // ShowPasswordCheckBox
             // 
             this.ShowPasswordCheckBox.AutoSize = true;
-            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(12, 280);
+            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(113, 713);
+            this.ShowPasswordCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
-            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(60, 19);
             this.ShowPasswordCheckBox.TabIndex = 17;
             this.ShowPasswordCheckBox.Text = "Show";
             this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
@@ -282,9 +287,10 @@
             // 
             // SettingsButton
             // 
-            this.SettingsButton.Location = new System.Drawing.Point(174, 120);
+            this.SettingsButton.Location = new System.Drawing.Point(208, 5);
+            this.SettingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(112, 23);
+            this.SettingsButton.Size = new System.Drawing.Size(140, 29);
             this.SettingsButton.TabIndex = 19;
             this.SettingsButton.Text = "Settings";
             this.SettingsButton.UseVisualStyleBackColor = true;
@@ -295,16 +301,17 @@
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.logProgressBar);
             this.panel1.Controls.Add(this.LogRichTextBox);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(15, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(490, 77);
+            this.panel1.Size = new System.Drawing.Size(870, 391);
             this.panel1.TabIndex = 18;
             // 
             // logProgressBar
             // 
-            this.logProgressBar.Location = new System.Drawing.Point(0, 64);
+            this.logProgressBar.Location = new System.Drawing.Point(0, 375);
             this.logProgressBar.Name = "logProgressBar";
-            this.logProgressBar.Size = new System.Drawing.Size(489, 13);
+            this.logProgressBar.Size = new System.Drawing.Size(869, 16);
             this.logProgressBar.TabIndex = 20;
             this.logProgressBar.Visible = false;
             // 
@@ -315,36 +322,80 @@
             this.LogRichTextBox.Location = new System.Drawing.Point(1, 1);
             this.LogRichTextBox.Name = "LogRichTextBox";
             this.LogRichTextBox.ReadOnly = true;
-            this.LogRichTextBox.Size = new System.Drawing.Size(488, 75);
+            this.LogRichTextBox.Size = new System.Drawing.Size(868, 389);
             this.LogRichTextBox.TabIndex = 0;
             this.LogRichTextBox.Text = "";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox2.Location = new System.Drawing.Point(16, 526);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(605, 59);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Server";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.ButtonStart);
+            this.flowLayoutPanel1.Controls.Add(this.ButtonStop);
+            this.flowLayoutPanel1.Controls.Add(this.SettingsButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 17);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(597, 38);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox3.Location = new System.Drawing.Point(16, 592);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(605, 59);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Connecitons";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.ButtonDisconnectAll);
+            this.flowLayoutPanel2.Controls.Add(this.ButtonDisconnectSchnorchels);
+            this.flowLayoutPanel2.Controls.Add(this.ButtonDisconnectAdministrations);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 17);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(597, 38);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(720, 306);
-            this.Controls.Add(this.SettingsButton);
+            this.ClientSize = new System.Drawing.Size(900, 779);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ShowPasswordCheckBox);
             this.Controls.Add(this.ChangePasswordButton);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.ButtonDisconnectAdministrations);
-            this.Controls.Add(this.ButtonDisconnectSchnorchels);
-            this.Controls.Add(this.ButtonDisconnectAll);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ListenersListBox);
             this.Controls.Add(this.RemoveListenerButton);
             this.Controls.Add(this.AddListenerButton);
-            this.Controls.Add(this.ButtonStop);
-            this.Controls.Add(this.ButtonStart);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -352,6 +403,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,14 +421,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label AdministrationsLabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ButtonStart;
         private System.Windows.Forms.Button ButtonStop;
         private System.Windows.Forms.Button AddListenerButton;
         private System.Windows.Forms.Button RemoveListenerButton;
         private System.Windows.Forms.ListBox ListenersListBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ButtonDisconnectAll;
         private System.Windows.Forms.Button ButtonDisconnectSchnorchels;
         private System.Windows.Forms.Button ButtonDisconnectAdministrations;
@@ -385,6 +438,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox LogRichTextBox;
         private System.Windows.Forms.ProgressBar logProgressBar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
 
