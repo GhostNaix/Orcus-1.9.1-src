@@ -20,6 +20,11 @@ namespace Orcus.Shared.Core
         /// <summary>
         ///     .Net Framework 4.5
         /// </summary>
-        [Description(".Net Framework 4.5")] NET45
+        [Description(".Net Framework 4.5")] NET45,
+
+        /// <summary>
+        ///     .Net Framework 4.8
+        /// </summary>
+        [Description(".Net Framework 4.8")] NET48
     }
 }

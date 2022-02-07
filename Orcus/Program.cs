@@ -102,7 +102,6 @@ namespace Orcus
                 client.BeginConnect();
                 StaticCommandSelector.Initialize(client);
 
-                Application.Run(new MainForm(client));
 #else
                 // Set the unhandled exception mode to force all Windows Forms errors
                 // to go through our handler.

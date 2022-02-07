@@ -112,23 +112,17 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppConfig" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;configuration&gt;
-  &lt;startup&gt;
-    &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;supportedRuntime version="v4.0" /&gt;
-    &lt;supportedRuntime version="v2.0.50727" /&gt;
-    &lt;supportedRuntime version="v4.0.30319" sku=".NETFramework,Version=v4.0,Profile=Client" /&gt;
-  &lt;/startup&gt;
-&lt;/configuration&gt;</value>
+&lt;startup&gt;&lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8"/&gt;&lt;/startup&gt;&lt;/configuration&gt;</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ConnectEnvironment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\connectenvironment.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

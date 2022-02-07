@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using Orcus.CommandManagement;
 using Orcus.Config;
-using Orcus.Extensions;
 using Orcus.Plugins;
 using Orcus.Shared.Core;
 using Orcus.Shared.Settings;
@@ -49,21 +48,9 @@ namespace Orcus.Core
 
         public IPathInformation PathInformation => _pathInformation ?? (_pathInformation = new Consts());
 
-#if NET35
-        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET35;
-#endif
-#if NET40
-        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET40;
-#endif
-#if NET45
-        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET45;
-#endif
+        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET48;
 
-#if NET35
-        public bool Is64BitProcess => EnvironmentExtensions.Is64BitProcess;
-#else
         public bool Is64BitProcess => Environment.Is64BitProcess;
-#endif
 
         IDatabaseConnection IClientOperator.DatabaseConnection => DatabaseConnection;
 

@@ -63,13 +63,7 @@ namespace Orcus.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;configuration&gt;
-        ///  &lt;startup&gt;
-        ///    &lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.5&quot; /&gt;
-        ///    &lt;supportedRuntime version=&quot;v4.0&quot; /&gt;
-        ///    &lt;supportedRuntime version=&quot;v2.0.50727&quot; /&gt;
-        ///    &lt;supportedRuntime version=&quot;v4.0.30319&quot; sku=&quot;.NETFramework,Version=v4.0,Profile=Client&quot; /&gt;
-        ///  &lt;/startup&gt;
-        ///&lt;/configuration&gt;.
+        ///&lt;startup&gt;&lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.8&quot;/&gt;&lt;/startup&gt;&lt;/configuration&gt;.
         /// </summary>
         internal static string AppConfig {
             get {

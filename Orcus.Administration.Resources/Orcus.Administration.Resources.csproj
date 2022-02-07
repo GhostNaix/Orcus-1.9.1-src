@@ -97,15 +97,6 @@
     <Resource Include="..\Orcus.Server\bin\Release\Orcus.Server.exe">
       <Link>Server\Orcus.Server.exe</Link>
     </Resource>
-    <Resource Include="..\Orcus\bin\Release\NET40\Orcus.exe">
-      <Link>Client\NET40\Orcus.exe</Link>
-    </Resource>
-    <Resource Include="..\Orcus\bin\Release\NET45\Orcus.exe">
-      <Link>Client\NET45\Orcus.exe</Link>
-    </Resource>
-    <Resource Include="..\Orcus\bin\Release\Orcus.exe">
-      <Link>Client\NET35\Orcus.exe</Link>
-    </Resource>
     <Resource Include="Audio\0.mp3" />
     <Resource Include="Audio\1.mp3" />
     <Resource Include="Audio\10.mp3" />
