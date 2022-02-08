@@ -79,7 +79,7 @@ namespace Orcus.Commands.DeviceManager
                     list.Add(device);
                     var classGuidString = managementObject.TryGetProperty<string>("ClassGuid");
                     Guid classGuid;
-#if NET35
+#if NET48
                     try
                     {
                         classGuid = new Guid(classGuidString);

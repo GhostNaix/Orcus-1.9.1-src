@@ -292,7 +292,7 @@ namespace Orcus.StaticCommandManagement
 
         private void InitializePlugin(string filename, byte[] hash)
         {
-#if NET35
+#if NET48
             var pluginData = File.ReadAllBytes(filename);
             var pluginAssembly = Assembly.Load(pluginData);
 #else

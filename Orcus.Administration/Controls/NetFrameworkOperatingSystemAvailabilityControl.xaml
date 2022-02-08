@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Background="{DynamicResource AccentColorBrush}"
              d:DesignHeight="88.793"
-             d:DesignWidth="425.862"
+             d:DesignWidth="481.159"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="ColumnHeaderTextBlock" TargetType="TextBlock">
@@ -17,6 +17,7 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -55,6 +56,12 @@
                    VerticalAlignment="Center"
                    Style="{StaticResource ColumnHeaderTextBlock}"
                    Text="Windows 10" />
+        <TextBlock Grid.Row="0"
+                   Grid.Column="5"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource ColumnHeaderTextBlock}"
+                   Text="Windows 11" />
         <Grid x:Name="WinXpGrid"
               Grid.Row="1"
               Grid.Column="0">
@@ -87,6 +94,13 @@
               Grid.Row="1"
               Grid.Column="4">
             <TextBlock x:Name="Win10Text"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+        </Grid>
+        <Grid x:Name="Win11Grid"
+              Grid.Row="1"
+              Grid.Column="5">
+            <TextBlock x:Name="Win11Text"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
         </Grid>

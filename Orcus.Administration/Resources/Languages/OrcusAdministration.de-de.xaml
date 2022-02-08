@@ -630,7 +630,7 @@
     <system:String x:Key="SureRemoveDataEntry">Sind Sie sicher, dass Sie den ausgewählten Eintrag entfernen wollen?</system:String>
     <system:String x:Key="Files">Dateien</system:String>
     <system:String x:Key="All">Alle</system:String>
-    <system:String x:Key="EmailAddress">E-Mail Adresse</system:String>
+    <system:String x:Key="DownloadToken">Token herunterladen</system:String>
     <system:String x:Key="GeoIpLocation">Geo IP Ortung</system:String>
     <system:String x:Key="RegisterHere">Hier registrieren</system:String>
     <system:String x:Key="Executable">Anwendung</system:String>

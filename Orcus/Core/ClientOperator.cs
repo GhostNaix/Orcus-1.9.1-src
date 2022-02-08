@@ -48,9 +48,12 @@ namespace Orcus.Core
 
         public IPathInformation PathInformation => _pathInformation ?? (_pathInformation = new Consts());
 
-        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET48;
-
-        public bool Is64BitProcess => Environment.Is64BitProcess;
+        #if NET48
+                public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET48;
+        #endif
+     
+       public bool Is64BitProcess => Environment.Is64BitProcess;
+        
 
         IDatabaseConnection IClientOperator.DatabaseConnection => DatabaseConnection;
 

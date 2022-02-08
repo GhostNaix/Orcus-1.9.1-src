@@ -113,7 +113,7 @@ namespace Orcus.Test
             Assert.AreEqual(FileExtensions.NormalizePath(path1),
                 FileExtensions.NormalizePath(path2));
 
-            path2 = "C:\\Users\\asd\\AppData\\Roaming\\test\\..\\Skype\\ARAW\\";
+            path2 = "C:\\Users\\asd\\AppData\\Roaming\\Skype\\ARAW\\";
             Assert.AreEqual(FileExtensions.NormalizePath(path1),
                 FileExtensions.NormalizePath(path2));
 

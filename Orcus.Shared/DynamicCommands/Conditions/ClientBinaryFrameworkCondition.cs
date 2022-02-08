@@ -20,12 +20,8 @@ namespace Orcus.Shared.DynamicCommands.Conditions
             {
                 switch (TargetFramework)
                 {
-                    case FrameworkVersion.NET35:
-                        return ".Net Framework = 3.5";
-                    case FrameworkVersion.NET40:
-                        return ".Net Framework = 4.0";
-                    case FrameworkVersion.NET45:
-                        return ".Net Framework = 4.5";
+                    case FrameworkVersion.NET48:
+                        return ".Net Framework = 4.8";
                     default:
                         throw new ArgumentException();
                 }

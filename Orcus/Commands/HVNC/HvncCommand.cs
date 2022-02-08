@@ -76,7 +76,7 @@ namespace Orcus.Commands.HVNC
 
                         if (information.StartExplorer)
                             _currentDesktop.CreateProcess(Path.Combine(
-#if NET35
+#if NET48
                             EnvironmentExtensions.WindowsFolder,
 #else
                             Environment.GetFolderPath(Environment.SpecialFolder.Windows),

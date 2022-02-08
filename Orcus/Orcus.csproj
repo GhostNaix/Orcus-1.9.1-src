@@ -14,7 +14,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <Framework Condition=" '$(Framework)' == '' ">NET35</Framework>
+    <Framework Condition=" '$(Framework)' == '' ">NET48</Framework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v4.8'">
+    <DefineConstants>$(DefineConstants);NET48</DefineConstants>
+    <OutputPath>bin\$(Configuration)\NET48</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -506,7 +510,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
-    <MSBuild Condition="'$(TargetFrameworkVersion)' != 'v4.8' And '$(TargetFrameworkVersion)' != 'v4.0'" Projects="$(MSBuildProjectFile)" Properties="TargetFrameworkVersion=v4.8" RunEachTargetSeparately="true" />
+    <MSBuild Condition="'$(TargetFrameworkVersion)' != 'v4.8'" Projects="$(MSBuildProjectFile)" Properties="TargetFrameworkVersion=v3.8" RunEachTargetSeparately="true" />
   </Target>
   <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -20,7 +20,7 @@ namespace OrcusPluginStudio.Core.Test.ClientVirtualisation
         public ushort AdministrationId { get; } = 1;
         public IServerConnection ServerConnection { get; }
         public IToolBase ToolBase { get; }
-        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET45;
+        public FrameworkVersion FrameworkVersion { get; } = FrameworkVersion.NET48;
 
         public void CommandFailed(Command command, byte[] message)
         {
