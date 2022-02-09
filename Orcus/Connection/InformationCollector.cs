@@ -171,6 +171,10 @@ namespace Orcus.Connection
                                 return fw;
 
                             int releaseKey = (int) ndpKey.GetValue("Release");
+                            if (releaseKey >= 528372)
+                            {
+                                return 4.8;
+                            }
                             if (releaseKey >= 393273)
                             {
                                 return 4.6;
