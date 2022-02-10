@@ -65,7 +65,7 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         files: |
-          Orcus.Administration/bin/Release/Orcus.Administration.zip
-          Orcus.Server/bin/Release/Orcus.Server.zip
-          Orcus.Server.CommandLine/bin/Release/Orcus.Server.CommandLine.zip
+          Orcus.Administration.zip
+          Orcus.Server.zip
+          Orcus.Server.CommandLine.zip
 
