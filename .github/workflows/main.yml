@@ -1,0 +1,86 @@
+name: Build Orcus
+
+on:
+  push:
+    branches: [ net48 ]
+  pull_request:
+    branches: [ net48 ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout ✨
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    # Add MSBuild to the PATH 🔗
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    # Install dependencies
+    - name: Install dependencies 📦
+      run: nuget restore Orcus.sln
+
+    # Build solution
+    - name: Build Orcus for release 🧱
+      run: msbuild Orcus.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+    # Build Artifact
+    - name: Archive Orcus.Administration 🧱
+      uses: thedoctor0/zip-release@master
+      with:
+        path: 'Orcus.Administration/bin/release/'
+        type: 'zip'
+        filename: 'Orcus.Administration.zip'
+
+    - name: Archive Orcus.Server 🧱
+      uses: thedoctor0/zip-release@master
+      with:
+        path: 'Orcus.Server/bin/release/'
+        type: 'zip'
+        filename: 'Orcus.Server.zip'
+
+    - name: Archive Orcus.Server.CommandLine 🧱
+      uses: thedoctor0/zip-release@master
+      with:
+        path: 'Orcus.Server.CommandLine/bin/release/'
+        type: 'zip'
+        filename: 'Orcus.Server.CommandLine.zip'
+      
+    # Delete-tag-and-release
+    - name: Delete-tag-and-release
+      uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      with:
+        delete_release: true # default: false
+        tag_name: AutoBuild # tag name to delete
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    # Create Release
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: AutoBuild
+        release_name: AutoBuild
+        body: ${{ steps.changelog.outputs.changelog }}
+        draft: false
+        prerelease: true
+        
+    # Upload Release Asset
+    - name: Upload Release Asset 📦
+      id: upload-release-asset 
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: |
+          Orcus.Administration/bin/release/Orcus.Administration.zip
+          Orcus.Server/bin/release/Orcus.Server.zip
+          Orcus.Server.CommandLine/bin/release/Orcus.Server.CommandLine.zip
+
