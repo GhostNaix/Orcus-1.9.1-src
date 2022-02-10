@@ -33,7 +33,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         path: ${{ github.workspace }}\Orcus.Administration\bin\Release\.
-        exclusions: '**/*.xml* *.cmd* **.pdb** **.config**'
+        exclusions: '*.xml* *.cmd* *.pdb* *.config* libraries\*.xml*'
         type: 'zip'
         filename: 'Orcus.Administration.zip'
 
