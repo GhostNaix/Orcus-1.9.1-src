@@ -32,21 +32,24 @@ jobs:
     - name: Archive Orcus.Administration 🧱
       uses: thedoctor0/zip-release@master
       with:
-        path: 'Orcus.Administration/bin/Release/'
+        path: ${{ github.workspace }}\Orcus.Administration\bin\Release\.
+        exclusions: '*.xml* *.cmd* *.pdb* *.config*'
         type: 'zip'
         filename: 'Orcus.Administration.zip'
 
     - name: Archive Orcus.Server 🧱
       uses: thedoctor0/zip-release@master
       with:
-        path: 'Orcus.Server/bin/Release/'
+        path: ${{ github.workspace }}\Orcus.Server\bin\Release\.
+        exclusions: '*.xml* *.cmd* *.pdb* *.config*'
         type: 'zip'
         filename: 'Orcus.Server.zip'
 
     - name: Archive Orcus.Server.CommandLine 🧱
       uses: thedoctor0/zip-release@master
       with:
-        path: 'Orcus.Server.CommandLine/bin/Release/'
+        path: ${{ github.workspace }}\Orcus.Server.CommandLine\bin\Release\.
+        exclusions: '*.xml* *.cmd* *.pdb* *.config*'
         type: 'zip'
         filename: 'Orcus.Server.CommandLine.zip'
     
