@@ -5,7 +5,7 @@ using Orcus.Administration.Plugins.BuildPlugin;
 
 namespace Orcus.Administration.Core.Build
 {
-    public class AssemblyResolver : IAssemblyResolver
+    public class AssemblyResolver : DefaultAssemblyResolver
     {
         private readonly IBuildLogger _buildLogger;
 
@@ -14,12 +14,12 @@ namespace Orcus.Administration.Core.Build
             _buildLogger = buildLogger;
         }
 
-        public AssemblyDefinition Resolve(AssemblyNameReference name)
+        public override AssemblyDefinition Resolve(AssemblyNameReference name)
         {
             return ResolveInternal(name.Name);
         }
 
-        public AssemblyDefinition Resolve(AssemblyNameReference name, ReaderParameters parameters)
+        public override AssemblyDefinition Resolve(AssemblyNameReference name, ReaderParameters parameters)
         {
             return ResolveInternal(name.Name);
         }
