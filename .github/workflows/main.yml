@@ -33,7 +33,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         path: ${{ github.workspace }}\Orcus.Administration\bin\Release\.
-        exclusions: '*.xml* *.cmd* *.pdb* *.config* libraries\*.xml*'
+        exclusions: '*.xml* *.cmd* *.pdb* libraries\*.xml* libraries\*.pdb*'
         type: 'zip'
         filename: 'Orcus.Administration.zip'
 
@@ -41,7 +41,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         path: ${{ github.workspace }}\Orcus.Server\bin\Release\.
-        exclusions: '*.xml* *.cmd* *.pdb* *.config*'
+        exclusions: '*.xml* *.cmd* *.pdb*'
         type: 'zip'
         filename: 'Orcus.Server.zip'
 
@@ -49,7 +49,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         path: ${{ github.workspace }}\Orcus.Server.CommandLine\bin\Release\.
-        exclusions: '*.xml* *.cmd* *.pdb* *.config*'
+        exclusions: '*.xml* *.cmd* *.pdb*'
         type: 'zip'
         filename: 'Orcus.Server.CommandLine.zip'
     
