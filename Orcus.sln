@@ -53,10 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orcus.Test", "Orcus.Test\Or
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RsaKeyPairGenerator", "Tools\RsaKeyPairGenerator\RsaKeyPairGenerator.csproj", "{7A29570A-8D35-4B30-9D59-0AE2BDADF88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioPackBuilder", "Tools\AudioPackBuilder\AudioPackBuilder.csproj", "{C3E8E5E9-CB59-4F32-80FE-40B4E05B0091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioPackBuilder.Plugin", "Tools\AudioPackBuilder.Plugin\AudioPackBuilder.Plugin.csproj", "{A15C8D9B-5E96-4AC4-9CFF-D9596B7ECAA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioPackBuilder", "Tools\AudioPackBuilder\AudioPackBuilder.csproj", "{C3E8E5E9-CB59-4F32-80FE-40B4E05B0091}"
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{257A13B4-D3A1-4B6B-A2D1-B53676585D8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orcus.Business.Server", "Business\Orcus.Business.Server\Orcus.Business.Server.csproj", "{C9A29891-2F05-4D5D-AE93-01826A599082}"
