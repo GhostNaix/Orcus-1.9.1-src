@@ -7,7 +7,7 @@
                       xmlns:extensions1="clr-namespace:Orcus.Administration.Extensions"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:systemRestore="clr-namespace:Orcus.Shared.Commands.SystemRestore;assembly=Orcus.Shared"
-                      xmlns:systemRestore1="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.SystemRestore;assembly=Orcus.Administration.ViewModels"
+                      xmlns:systemRestore1="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.SystemRestore"
                       Title="{StaticResource CreateSystemRestorePoint}"
                       Width="500"
                       d:DataContext="{d:DesignInstance systemRestore1:CreateSystemRestorePointViewModel}"

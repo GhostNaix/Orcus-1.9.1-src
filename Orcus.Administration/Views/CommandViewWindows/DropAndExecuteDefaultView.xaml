@@ -2,7 +2,7 @@
     x:Class="Orcus.Administration.Views.CommandViewWindows.DropAndExecuteDefaultView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels;assembly=Orcus.Administration.ViewModels"
+    xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels"
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dropAndExecute="clr-namespace:Orcus.Administration.Commands.DropAndExecute;assembly=Orcus.Administration.Commands"

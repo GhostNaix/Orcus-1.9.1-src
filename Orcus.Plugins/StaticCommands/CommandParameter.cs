@@ -33,8 +33,8 @@ namespace Orcus.Plugins.StaticCommands
         /// <returns></returns>
         public static CommandParameter FromProperties(List<IProperty> commandProperties)
         {
-            if (commandProperties.Count == 0)
-                return new CommandParameter(null);
+            /*if (commandProperties.Count == 0)
+                return new CommandParameter(null);*/
 
             var properties = commandProperties.Select(x => x.ToPropertyNameValue()).ToList();
             var types = new List<Type>(commandProperties.Select(x => x.PropertyType).Where(x => x != null))

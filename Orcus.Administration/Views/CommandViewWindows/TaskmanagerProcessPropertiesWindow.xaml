@@ -6,7 +6,7 @@
                       xmlns:extensions="clr-namespace:Sorzus.Wpf.Toolkit.Extensions;assembly=Sorzus.Wpf.Toolkit"
                       xmlns:extensions1="clr-namespace:Orcus.Administration.Extensions"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:taskmanager="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Taskmanager;assembly=Orcus.Administration.ViewModels"
+                      xmlns:taskmanager="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Taskmanager"
                       Title="Application Properties"
                       Width="650"
                       d:DataContext="{d:DesignInstance taskmanager:ProcessPropertiesViewModel}"

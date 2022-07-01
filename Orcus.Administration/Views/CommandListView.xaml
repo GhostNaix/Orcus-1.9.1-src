@@ -5,7 +5,7 @@
              xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+             xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
              xmlns:views="clr-namespace:Orcus.Administration.Views"
              d:DataContext="{d:DesignInstance viewModels:ControllerViewModel}"
              d:DesignHeight="457"

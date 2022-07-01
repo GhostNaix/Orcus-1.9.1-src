@@ -8,7 +8,7 @@
                        xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                        xmlns:registry="clr-namespace:Orcus.Shared.Commands.Registry;assembly=Orcus.Shared"
-                       xmlns:registry1="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Registry;assembly=Orcus.Administration.ViewModels"
+                       xmlns:registry1="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.Registry"
                        x:Name="EditValueWindow"
                        Title="{Binding Title}"
                        Width="500"

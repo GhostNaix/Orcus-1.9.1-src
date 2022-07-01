@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:clipboard="clr-namespace:Orcus.Shared.Commands.ClipboardManager;assembly=Orcus.Shared"
-    xmlns:clipboardManager="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.ClipboardManager;assembly=Orcus.Administration.ViewModels"
+    xmlns:clipboardManager="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.ClipboardManager"
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:converter="clr-namespace:Orcus.Administration.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

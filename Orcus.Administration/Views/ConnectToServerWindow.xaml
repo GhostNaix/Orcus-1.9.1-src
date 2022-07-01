@@ -8,7 +8,7 @@
                       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
                       x:Name="ConnectionWindow"
                       Title="{StaticResource ConnectToServer}"
                       Width="570"

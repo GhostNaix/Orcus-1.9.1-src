@@ -7,7 +7,7 @@
              xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:extensions1="clr-namespace:Sorzus.Wpf.Toolkit.Extensions;assembly=Sorzus.Wpf.Toolkit"
-             xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels;assembly=Orcus.Administration.ViewModels"
+             xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels"
              d:DataContext="{d:DesignInstance commandViewModels:UserInteractionViewModel}"
              d:DesignHeight="420"
              d:DesignWidth="800"

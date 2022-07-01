@@ -4,7 +4,7 @@
              xmlns:converter="clr-namespace:Orcus.Administration.Converter"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
-             xmlns:keys="clr-namespace:Orcus.Administration.ViewModels.KeyLog;assembly=Orcus.Administration.ViewModels"
+             xmlns:keys="clr-namespace:Orcus.Administration.ViewModels.KeyLog"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DesignHeight="300"
              d:DesignWidth="300"

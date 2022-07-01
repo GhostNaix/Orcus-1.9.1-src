@@ -12,7 +12,7 @@
                       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:system="clr-namespace:System;assembly=mscorlib"
-                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
                       xmlns:views="clr-namespace:Orcus.Administration.Views"
                       Title="Orcus Administration"
                       Width="950"

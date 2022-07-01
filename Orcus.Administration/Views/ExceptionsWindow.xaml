@@ -7,7 +7,7 @@
                       xmlns:exceptionHandling="clr-namespace:Orcus.Shared.Commands.ExceptionHandling;assembly=Orcus.Shared"
                       xmlns:listViewLayoutManager="clr-namespace:Sorzus.Wpf.Toolkit.ListViewLayoutManager;assembly=Sorzus.Wpf.Toolkit"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
                       Title="{StaticResource Exceptions}"
                       Width="800"
                       Height="400"

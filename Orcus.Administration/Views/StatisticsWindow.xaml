@@ -7,7 +7,7 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:oxy="http://oxyplot.org/wpf"
                       xmlns:pieControls="clr-namespace:Orcus.Administration.Controls.PieControls"
-                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+                      xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
                       Title="{StaticResource Statistics}"
                       Width="852"
                       Height="432"

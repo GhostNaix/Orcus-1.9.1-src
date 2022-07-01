@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="Orcus.Administration.Views.CommandViews.WindowManagerCommandView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels;assembly=Orcus.Administration.ViewModels"
+             xmlns:commandViewModels="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:controls1="clr-namespace:Orcus.Administration.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

@@ -7,7 +7,7 @@
     xmlns:data="clr-namespace:Orcus.Administration.Core.ClientManagement;assembly=Orcus.Administration.Core"
     xmlns:listViewLayoutManager="clr-namespace:Sorzus.Wpf.Toolkit.ListViewLayoutManager;assembly=Sorzus.Wpf.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels;assembly=Orcus.Administration.ViewModels"
+    xmlns:viewModels="clr-namespace:Orcus.Administration.ViewModels"
     Title="{Binding Title}"
     Width="540"
     Height="360"

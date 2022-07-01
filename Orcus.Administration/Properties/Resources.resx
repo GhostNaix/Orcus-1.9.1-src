@@ -486,6 +486,38 @@ pause</value>
 	&lt;/RuleSet&gt;
 &lt;/SyntaxDefinition&gt;</value>
   </data>
+  <data name="DefaultCodeCsharp" xml:space="preserve">
+    <value>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace SDPU
+{
+    public class CodeExecution
+    {
+        public void Main()
+        {
+            MessageBox.Show("Hey there!");
+        }
+    }
+}</value>
+  </data>
+  <data name="DefaultCodeVisualBasic" xml:space="preserve">
+    <value>Imports System.Collections.Generic
+Imports System.Linq
+Imports System.Text
+Imports System.Windows.Forms
+
+Namespace SDPU
+	Public Class CodeExecution
+		Public Sub Main()
+			MessageBox.Show("Hey there!")
+		End Sub
+	End Class
+End Namespace</value>
+  </data>
   <data name="ExportValueSyntax" xml:space="preserve">
     <value>&lt;SyntaxDefinition name="ExportValueSyntax"
         xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008"&gt;

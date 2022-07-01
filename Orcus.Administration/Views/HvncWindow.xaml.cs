@@ -25,13 +25,11 @@ namespace Orcus.Administration.Views
         private void HvncScreenImage_OnKeyDown(object sender, KeyEventArgs e)
         {
 #if DEBUG
-            if (HvncScreenImage.Source != null && EnableKeyboardCheckBox.IsChecked == true &&
-                _hvncViewModel.IsRunning)
+            if (HvncScreenImage.Source != null && EnableKeyboardCheckBox.IsChecked == true && _hvncViewModel.IsRunning)
             {
                 e.Handled = true;
 
-                _hvncViewModel.HvncCommand.KeyboardAction((byte) KeyInterop.VirtualKeyFromKey(e.Key),
-                    true);
+                _hvncViewModel.HvncCommand.KeyboardAction((byte)KeyInterop.VirtualKeyFromKey(e.Key), true);
             }
 #endif
         }
@@ -39,16 +37,13 @@ namespace Orcus.Administration.Views
         private void HvncScreenImage_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
 #if DEBUG
-            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true &&
-                _hvncViewModel.IsRunning)
+            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true && _hvncViewModel.IsRunning)
             {
                 var p = e.GetPosition(HvncScreenImage);
                 var remoteX = GetRemoteWidth(p.X);
                 var remoteY = GetRemoteHeight(p.Y);
 
-                _hvncViewModel.HvncCommand.MouseAction(
-                    e.ChangedButton == MouseButton.Left ? HvncAction.LeftDown : HvncAction.RightDown,
-                    remoteX, remoteY);
+                _hvncViewModel.HvncCommand.MouseAction(e.ChangedButton == MouseButton.Left ? HvncAction.LeftDown : HvncAction.RightDown, remoteX, remoteY);
             }
 #endif
         }
@@ -57,13 +52,11 @@ namespace Orcus.Administration.Views
         {
 #if DEBUG
             return;
-            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true &&
-                _hvncViewModel.IsRunning)
+            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true && _hvncViewModel.IsRunning)
             {
                 var p = e.GetPosition(HvncScreenImage);
                 var remoteX = GetRemoteWidth(p.X);
                 var remoteY = GetRemoteHeight(p.Y);
-
                 _hvncViewModel.HvncCommand.MouseAction(HvncAction.MouseMove, remoteX, remoteY);
             }
 #endif
@@ -72,29 +65,25 @@ namespace Orcus.Administration.Views
         private void HvncScreenImage_OnMouseUp(object sender, MouseButtonEventArgs e)
         {
 #if DEBUG
-            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true &&
-                _hvncViewModel.IsRunning)
+            if (HvncScreenImage.Source != null && EnableMouseCheckBox.IsChecked == true && _hvncViewModel.IsRunning)
             {
                 var p = e.GetPosition(HvncScreenImage);
                 var remoteX = GetRemoteWidth(p.X);
                 var remoteY = GetRemoteHeight(p.Y);
 
-                _hvncViewModel.HvncCommand.MouseAction(
-                    e.ChangedButton == MouseButton.Left ? HvncAction.LeftUp : HvncAction.RightUp,
-                    remoteX, remoteY);
+                _hvncViewModel.HvncCommand.MouseAction(e.ChangedButton == MouseButton.Left ? HvncAction.LeftUp : HvncAction.RightUp, remoteX, remoteY);
             }
 #endif
         }
-
 #if DEBUG
         private int GetRemoteWidth(double localX)
         {
-            return (int) (localX/HvncScreenImage.ActualWidth*_hvncViewModel.RenderEngine.ScreenWidth);
+            return (int)(localX / HvncScreenImage.ActualWidth * _hvncViewModel.RenderEngine.ScreenWidth);
         }
 
         private int GetRemoteHeight(double localY)
         {
-            return (int) (localY/HvncScreenImage.ActualHeight*_hvncViewModel.RenderEngine.ScreenHeight);
+            return (int)(localY / HvncScreenImage.ActualHeight * _hvncViewModel.RenderEngine.ScreenHeight);
         }
 #endif
         private void OpenProcessTextBox_OnMouseDown(object sender, MouseButtonEventArgs e)

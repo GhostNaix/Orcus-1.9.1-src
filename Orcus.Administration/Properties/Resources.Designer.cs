@@ -19,7 +19,7 @@ namespace Orcus.Administration.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -107,6 +107,50 @@ namespace Orcus.Administration.Properties {
         internal static string CSharpSyntax {
             get {
                 return ResourceManager.GetString("CSharpSyntax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Windows.Forms;
+        ///
+        ///namespace SDPU
+        ///{
+        ///    public class CodeExecution
+        ///    {
+        ///        public void Main()
+        ///        {
+        ///            MessageBox.Show(&quot;Hey there!&quot;);
+        ///        }
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string DefaultCodeCsharp {
+            get {
+                return ResourceManager.GetString("DefaultCodeCsharp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imports System.Collections.Generic
+        ///Imports System.Linq
+        ///Imports System.Text
+        ///Imports System.Windows.Forms
+        ///
+        ///Namespace SDPU
+        ///	Public Class CodeExecution
+        ///		Public Sub Main()
+        ///			MessageBox.Show(&quot;Hey there!&quot;)
+        ///		End Sub
+        ///	End Class
+        ///End Namespace.
+        /// </summary>
+        internal static string DefaultCodeVisualBasic {
+            get {
+                return ResourceManager.GetString("DefaultCodeVisualBasic", resourceCulture);
             }
         }
         

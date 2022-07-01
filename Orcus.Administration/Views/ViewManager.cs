@@ -67,6 +67,9 @@ namespace Orcus.Administration.Views
                     new GenericViewModelConnector<WindowsCustomizerViewModel, WindowsCustomizerCommandView>(),
                     new GenericViewModelConnector<VoiceChatViewModel, VoiceChatCommandView>(),
                     new GenericViewModelConnector<ClipboardManagerViewModel, ClipboardManagerCommandView>(),
+#if DEBUG
+                    new GenericViewModelConnector<HvncViewModel,HvncCommandView>()
+#endif
                 };
 
             _viewModels =

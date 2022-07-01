@@ -1,5 +1,4 @@
-﻿#if DEBUG
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -32,7 +31,7 @@ namespace Orcus.Commands.HVNC
                 if (!NativeMethods.GetWindowRect(subElement, out rect))
                     continue;
 
-                if (((Rectangle) rect).Contains(point))
+                if (((Rectangle)rect).Contains(point))
                 {
                     var handle = GetExactHandle(subElement, point);
                     if (handle == null)
@@ -64,4 +63,3 @@ namespace Orcus.Commands.HVNC
         public IntPtr Handle { get; }
     }
 }
-#endif

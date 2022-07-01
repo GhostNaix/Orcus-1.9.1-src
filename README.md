@@ -1,9 +1,13 @@
 # Orcus 1.9.1 Source Code
 
-# Changes i made to this fork
+# Changes kgnfth made to this fork
 - Removed license key checking ( no need to manually create a license file )
 - Fixed release build + Language and dll files will go in libraries folder (cleaner release)
 - Fixed IP2Location (See Video below)
+
+# Changes that i made to this fork
+- Fixed the uninstall command in the commands section
+- Semi-fixed HVNC Command (Build in Debug mode) (Kinda fixed but it runs at 3fps and after a while shows black screen) (if someone can then make a pull request)
 
 https://user-images.githubusercontent.com/73314940/145938805-bdd7316e-ea36-4588-a70e-f7062997bf0e.mp4
 
