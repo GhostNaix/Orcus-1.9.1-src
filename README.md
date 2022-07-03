@@ -21,7 +21,10 @@ I'm not associated with the development and production of this program are not r
 https://cracked.to/Thread-Leak-C-Orcus-1-9-1-RAT-Full-Source-Code-Leaked
 
 ## Build
-- Set the build option to `Release`
+- Goto Tools > NuGet Package Manager > NuGet Package Manager Console
+- Run the command `Update-Package -Reinstall -Safe` (or `Update-Package -Reinstall` if you want to live on the edge)
+- Wait!
+- When done ! Set the build option to `Release`
 - Press Ctrl + Shift + B to build the complete solution (do this until it does nothing if you build)
 - Set the build option back to `Debug`
 - Press Ctrl+ Shift + B again
